@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Royal Mod | Official</title>
+
+    <meta name="description" content="Royal Mod Official Access Portal">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <div class="logo">👑</div>
+            <h1>ROYAL MOD</h1>
+            <p>Official Access Portal</p>
+        </header>
+
+        <main>
+
+            <div class="card">
+
+                <div class="step-number">01</div>
+
+                <h2>Subscribe to YouTube</h2>
+
+                <p>
+                    Subscribe to our official YouTube channel
+                    to continue.
+                </p>
+
+                <a
+                    href="https://www.youtube.com/@Royal_mod-89"
+                    target="_blank"
+                    class="action-btn"
+                >
+                    SUBSCRIBE
+                </a>
+
+                <button class="verify-btn" onclick="startVerification(1)">
+                    VERIFY
+                </button>
+
+                <div id="timer1" class="timer"></div>
+
+            </div>
+
+
+            <div class="card locked">
+
+                <div class="step-number">02</div>
+
+                <h2>Subscribe to YouTube</h2>
+
+                <p>
+                    Complete Step 1 before continuing.
+                </p>
+
+                <a
+                    href="https://www.youtube.com/@Royalmod.2"
+                    target="_blank"
+                    class="action-btn"
+                >
+                    SUBSCRIBE
+                </a>
+
+                <button
+                    class="verify-btn"
+                    id="verify2"
+                    onclick="startVerification(2)"
+                    disabled
+                >
+                    VERIFY
+                </button>
+
+                <div id="timer2" class="timer"></div>
+
+            </div>
+
+
+            <div class="card locked">
+
+                <div class="step-number">03</div>
+
+                <h2>Follow Instagram</h2>
+
+                <p>
+                    Follow our official Instagram account.
+                </p>
+
+                <a
+                    href="https://www.instagram.com/royalmod_89"
+                    target="_blank"
+                    class="action-btn"
+                >
+                    FOLLOW
+                </a>
+
+                <button
+                    class="verify-btn"
+                    id="verify3"
+                    onclick="startVerification(3)"
+                    disabled
+                >
+                    VERIFY
+                </button>
+
+                <div id="timer3" class="timer"></div>
+
+            </div>
+
+
+            <div id="accessBox" class="access-box locked">
+
+                <h2>🔐 Access</h2>
+
+                <p>
+                    Complete all steps to unlock access.
+                </p>
+
+                <button id="accessBtn" disabled>
+                    GET ACCESS
+                </button>
+
+            </div>
+
+        </main>
+
+
+        <footer>
+            <p>© 2026 Royal Mod. All Rights Reserved.</p>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
