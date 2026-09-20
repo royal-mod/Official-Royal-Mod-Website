@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Royal Mod | Access</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .access-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .access-header h1 {
+            color: var(--gold);
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+
+        .access-header p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .account {
+            background: rgba(255,255,255,0.025);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .account-title {
+            color: var(--gold);
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .credential {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .credential-label {
+            width: 80px;
+            color: #999;
+            font-size: 13px;
+        }
+
+        .credential-value {
+            flex: 1;
+            background: #080808;
+            border: 1px solid #292929;
+            border-radius: 8px;
+            padding: 10px;
+            color: white;
+            font-family: monospace;
+            overflow: hidden;
+            word-break: break-all;
+        }
+
+        .copy-btn {
+            background: var(--gold);
+            color: #080808;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .copy-btn:hover {
+            background: var(--gold-light);
+        }
+
+        .back-btn {
+            display: block;
+            width: fit-content;
+            margin: 25px auto 0;
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .warning {
+            text-align: center;
+            color: #777;
+            font-size: 12px;
+            margin-top: 25px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="access-header">
+
+        <div class="logo">👑</div>
+
+        <h1>ROYAL MOD</h1>
+
+        <p>Access Portal</p>
+
+    </div>
+
+
+    <div class="account">
+
+        <div class="account-title">
+            ACCESS #001
+        </div>
+
+        <div class="credential">
+
+            <div class="credential-label">
+                Username
+            </div>
+
+            <div class="credential-value" id="user1">
+                DEMO-USERNAME-001
+            </div>
+
+            <button
+                class="copy-btn"
+                onclick="copyText('user1', this)"
+            >
+                COPY
+            </button>
+
+        </div>
+
+
+        <div class="credential">
+
+            <div class="credential-label">
+                Password
+            </div>
+
+            <div class="credential-value" id="pass1">
+                DEMO-PASSWORD-001
+            </div>
+
+            <button
+                class="copy-btn"
+                onclick="copyText('pass1', this)"
+            >
+                COPY
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="account">
+
+        <div class="account-title">
+            ACCESS #002
+        </div>
+
+        <div class="credential">
+
+            <div class="credential-label">
+                Username
+            </div>
+
+            <div class="credential-value" id="user2">
+                DEMO-USERNAME-002
+            </div>
+
+            <button
+                class="copy-btn"
+                onclick="copyText('user2', this)"
+            >
+                COPY
+            </button>
+
+        </div>
+
+
+        <div class="credential">
+
+            <div class="credential-label">
+                Password
+            </div>
+
+            <div class="credential-value" id="pass2">
+                DEMO-PASSWORD-002
+            </div>
+
+            <button
+                class="copy-btn"
+                onclick="copyText('pass2', this)"
+            >
+                COPY
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <a href="index.html" class="back-btn">
+        ← Back to Verification
+    </a>
+
+
+    <div class="warning">
+        Keep your access details private.<br>
+        Do not share credentials publicly.
+    </div>
+
+</div>
+
+
+<script>
+
+function copyText(id, button) {
+
+    const text = document.getElementById(id).innerText;
+
+    navigator.clipboard.writeText(text).then(() => {
+
+        const oldText = button.innerText;
+
+        button.innerText = "COPIED ✓";
+
+        setTimeout(() => {
+            button.innerText = oldText;
+        }, 1500);
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
