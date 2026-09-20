@@ -5,22 +5,15 @@
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Royal Mod | Official Access</title>
 
-    <meta
-        name="description"
-        content="Royal Mod Official Access Portal"
-    >
+    <meta name="description"
+          content="Royal Mod Official Access Portal">
 
-    <link
-        rel="stylesheet"
-        href="./style.css"
-    >
+    <link rel="stylesheet" href="./style.css">
 
 </head>
 
@@ -30,7 +23,7 @@
 <div class="container">
 
 
-    <!-- HEADER -->
+    <!-- ================= HEADER ================= -->
 
     <header>
 
@@ -38,215 +31,193 @@
             👑
         </div>
 
-        <h1>
-            ROYAL MOD
-        </h1>
+        <h1>ROYAL MOD</h1>
 
-        <p>
-            Official Access Portal
-        </p>
+        <p>Official Access Portal</p>
 
     </header>
 
 
-    <!-- MAIN -->
 
-    <main>
+    <!-- ================= STEP 1 ================= -->
+
+    <section class="card active" id="step1">
+
+        <span class="step-number">01</span>
+
+        <h2>Subscribe to YouTube</h2>
+
+        <p>
+            Subscribe to our first official YouTube channel
+            to continue.
+        </p>
 
 
-        <!-- =========================
-             STEP 1
-        ========================== -->
-
-        <div
-            class="card"
-            id="step1"
-        >
-
-            <div class="step-number">
-                01
-            </div>
-
-            <h2>
-                Subscribe to YouTube
-            </h2>
-
-            <p>
-                Subscribe to our first official
-                YouTube channel to continue.
-            </p>
-
+        <div class="buttons">
 
             <a
+                id="subscribe1"
+                class="action-btn"
                 href="https://www.youtube.com/@Royal_mod-89"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="action-btn"
-                id="subscribe1"
-                onclick="handleAction(1)"
+                onclick="subscribeClicked(1)"
             >
                 SUBSCRIBE
             </a>
 
 
             <button
-                class="verify-btn"
                 id="verify1"
-                onclick="startVerification(1)"
+                class="verify-btn"
                 disabled
+                onclick="verifyStep(1)"
             >
                 VERIFY
             </button>
 
-
-            <div
-                class="timer"
-                id="timer1"
-            ></div>
-
         </div>
 
 
-
-        <!-- =========================
-             STEP 2
-        ========================== -->
-
         <div
-            class="card locked"
-            id="step2"
-        >
+            id="timer1"
+            class="timer"
+        ></div>
 
-            <div class="step-number">
-                02
-            </div>
+    </section>
 
-            <h2>
-                Subscribe to YouTube
-            </h2>
 
-            <p>
-                Complete Step 1 before continuing.
-            </p>
 
+    <!-- ================= STEP 2 ================= -->
+
+    <section class="card locked"
+             id="step2">
+
+        <span class="step-number">02</span>
+
+        <h2>Subscribe to YouTube</h2>
+
+        <p>
+            Complete Step 1 to unlock this step.
+        </p>
+
+
+        <div class="buttons">
 
             <a
+                id="subscribe2"
+                class="action-btn disabled"
                 href="https://www.youtube.com/@Royalmod.2"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="action-btn disabled-link"
-                id="subscribe2"
-                onclick="handleAction(2)"
+                onclick="subscribeClicked(2)"
             >
                 SUBSCRIBE
             </a>
 
 
             <button
-                class="verify-btn"
                 id="verify2"
-                onclick="startVerification(2)"
+                class="verify-btn"
                 disabled
+                onclick="verifyStep(2)"
             >
                 VERIFY
             </button>
 
-
-            <div
-                class="timer"
-                id="timer2"
-            ></div>
-
         </div>
 
 
-
-        <!-- =========================
-             STEP 3
-        ========================== -->
-
         <div
-            class="card locked"
-            id="step3"
-        >
+            id="timer2"
+            class="timer"
+        ></div>
 
-            <div class="step-number">
-                03
-            </div>
+    </section>
 
-            <h2>
-                Follow Instagram
-            </h2>
 
-            <p>
-                Follow our official Instagram account.
-            </p>
 
+    <!-- ================= STEP 3 ================= -->
+
+    <section class="card locked"
+             id="step3">
+
+        <span class="step-number">03</span>
+
+        <h2>Follow Instagram</h2>
+
+        <p>
+            Follow our official Instagram account
+            to continue.
+        </p>
+
+
+        <div class="buttons">
 
             <a
+                id="follow3"
+                class="action-btn disabled"
                 href="https://www.instagram.com/royalmod_89"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="action-btn disabled-link"
-                id="follow3"
-                onclick="handleAction(3)"
+                onclick="followClicked()"
             >
                 FOLLOW
             </a>
 
 
             <button
-                class="verify-btn"
                 id="verify3"
-                onclick="startVerification(3)"
+                class="verify-btn"
                 disabled
+                onclick="verifyStep(3)"
             >
                 VERIFY
             </button>
 
-
-            <div
-                class="timer"
-                id="timer3"
-            ></div>
-
         </div>
 
-
-
-        <!-- =========================
-             ACCESS
-        ========================== -->
 
         <div
-            class="access-box locked"
-            id="accessBox"
-        >
+            id="timer3"
+            class="timer"
+        ></div>
 
-            <h2>
-                🔒 Access
-            </h2>
-
-            <p>
-                Complete all steps to unlock access.
-            </p>
+    </section>
 
 
-            <button
-                id="accessBtn"
-                disabled
-            >
-                GET ACCESS
-            </button>
 
+    <!-- ================= ACCESS ================= -->
+
+    <section
+        class="access-box locked"
+        id="accessBox"
+    >
+
+        <div class="lock-icon">
+            🔒
         </div>
 
+        <h2>Access Locked</h2>
 
-    </main>
+        <p>
+            Complete all three steps to unlock access.
+        </p>
+
+
+        <button
+            id="accessBtn"
+            disabled
+            onclick="getAccess()"
+        >
+            GET ACCESS
+        </button>
+
+    </section>
 
 
 
-    <!-- FOOTER -->
+    <!-- ================= FOOTER ================= -->
 
     <footer>
 
