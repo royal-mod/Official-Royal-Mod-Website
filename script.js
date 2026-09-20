@@ -1,239 +1,112 @@
 /* =========================================
-   ROYAL MOD ACCESS SYSTEM
+   ROYAL MOD
+   STEP-BY-STEP ACCESS SYSTEM
 ========================================= */
 
 
 /* =========================================
-   SAVE PROGRESS
+   STEP 1
 ========================================= */
 
-function saveProgress(key, value) {
+function subscribeClicked(step) {
 
-    localStorage.setItem(
-        "royalmod_" + key,
-        value
-    );
-
-}
+    if (step !== 1) {
+        return;
+    }
 
 
-/* =========================================
-   GET PROGRESS
-========================================= */
-
-function getProgress(key) {
-
-    return localStorage.getItem(
-        "royalmod_" + key
-    );
-
-}
+    const verifyButton =
+        document.getElementById("verify1");
 
 
-/* =========================================
-   HANDLE SUBSCRIBE / FOLLOW
-========================================= */
+    const timer =
+        document.getElementById("timer1");
 
-function handleAction(step) {
 
     /*
-       Save that the user clicked the
-       Subscribe / Follow button.
-
-       The external website will open,
-       but progress remains saved.
+       User clicked first YouTube Subscribe.
+       Now ONLY Verify #1 unlocks.
     */
 
-    saveProgress(
-        "action" + step,
-        "clicked"
-    );
+    verifyButton.disabled = false;
+
+    verifyButton.classList.add("ready");
+
+
+    timer.textContent =
+        "Ready to verify";
 
 }
 
 
 /* =========================================
-   ENABLE VERIFY BUTTON
+   STEP 2
 ========================================= */
 
-function enableVerify(step) {
+function unlockStep2() {
 
-    const button =
+    const step =
+        document.getElementById("step2");
+
+
+    const subscribe =
+        document.getElementById("subscribe2");
+
+
+    /*
+       Unlock ONLY the second
+       YouTube Subscribe button.
+    */
+
+    step.classList.remove("locked");
+
+    step.classList.add("active");
+
+
+    subscribe.classList.remove("disabled");
+
+}
+
+
+/* =========================================
+   STEP 3
+========================================= */
+
+function unlockStep3() {
+
+    const step =
+        document.getElementById("step3");
+
+
+    const follow =
+        document.getElementById("follow3");
+
+
+    /*
+       Unlock ONLY Instagram Follow.
+    */
+
+    step.classList.remove("locked");
+
+    step.classList.add("active");
+
+
+    follow.classList.remove("disabled");
+
+}
+
+
+/* =========================================
+   SECOND / THIRD ACTION
+========================================= */
+
+function enableVerification(step) {
+
+    const verify =
         document.getElementById(
             "verify" + step
         );
 
-    if (!button) return;
-
-    button.disabled = false;
-
-    button.classList.add("ready");
-
-}
-
-
-/* =========================================
-   UNLOCK STEP
-========================================= */
-
-function unlockStep(step) {
-
-    const card =
-        document.getElementById(
-            "step" + step
-        );
-
-    if (!card) return;
-
-    card.classList.remove(
-        "locked"
-    );
-
-    card.classList.add(
-        "unlocked"
-    );
-
-
-    /* STEP 2 */
-
-    if (step === 2) {
-
-        const subscribe2 =
-            document.getElementById(
-                "subscribe2"
-            );
-
-        subscribe2.classList.remove(
-            "disabled-link"
-        );
-
-        subscribe2.style.pointerEvents =
-            "auto";
-
-        subscribe2.removeAttribute(
-            "aria-disabled"
-        );
-
-        enableVerify(2);
-    }
-
-
-    /* STEP 3 */
-
-    if (step === 3) {
-
-        const follow3 =
-            document.getElementById(
-                "follow3"
-            );
-
-        follow3.classList.remove(
-            "disabled-link"
-        );
-
-        follow3.style.pointerEvents =
-            "auto";
-
-        follow3.removeAttribute(
-            "aria-disabled"
-        );
-
-        enableVerify(3);
-    }
-
-}
-
-
-/* =========================================
-   COMPLETE STEP
-========================================= */
-
-function completeStep(step) {
-
-    saveProgress(
-        "completed" + step,
-        "yes"
-    );
-
-
-    const card =
-        document.getElementById(
-            "step" + step
-        );
-
-    if (card) {
-
-        card.classList.remove(
-            "locked"
-        );
-
-        card.classList.add(
-            "unlocked"
-        );
-
-    }
-
-
-    /* STEP 1 COMPLETE */
-
-    if (step === 1) {
-
-        unlockStep(2);
-
-    }
-
-
-    /* STEP 2 COMPLETE */
-
-    if (step === 2) {
-
-        unlockStep(3);
-
-    }
-
-
-    /* STEP 3 COMPLETE */
-
-    if (step === 3) {
-
-        const accessBox =
-            document.getElementById(
-                "accessBox"
-            );
-
-        const accessBtn =
-            document.getElementById(
-                "accessBtn"
-            );
-
-
-        accessBox.classList.remove(
-            "locked"
-        );
-
-        accessBox.classList.add(
-            "unlocked"
-        );
-
-
-        accessBtn.disabled =
-            false;
-
-    }
-
-}
-
-
-/* =========================================
-   10 SECOND VERIFICATION
-========================================= */
-
-function startVerification(step) {
-
-    const button =
-        document.getElementById(
-            "verify" + step
-        );
 
     const timer =
         document.getElementById(
@@ -241,19 +114,67 @@ function startVerification(step) {
         );
 
 
-    if (!button || button.disabled) {
-
+    if (!verify) {
         return;
-
     }
 
 
-    button.disabled =
-        true;
+    verify.disabled = false;
 
-    button.classList.remove(
-        "ready"
-    );
+    verify.classList.add("ready");
+
+
+    if (timer) {
+
+        timer.textContent =
+            "Ready to verify";
+
+    }
+
+}
+
+
+/* =========================================
+   INSTAGRAM FOLLOW
+========================================= */
+
+function followClicked() {
+
+    enableVerification(3);
+
+}
+
+
+/* =========================================
+   UNIVERSAL VERIFICATION
+========================================= */
+
+function verifyStep(step) {
+
+    const verify =
+        document.getElementById(
+            "verify" + step
+        );
+
+
+    const timer =
+        document.getElementById(
+            "timer" + step
+        );
+
+
+    if (!verify || verify.disabled) {
+        return;
+    }
+
+
+    /*
+       Lock Verify while timer runs.
+    */
+
+    verify.disabled = true;
+
+    verify.classList.remove("ready");
 
 
     let seconds = 10;
@@ -266,7 +187,7 @@ function startVerification(step) {
 
 
     const countdown =
-        setInterval(() => {
+        setInterval(function () {
 
             seconds--;
 
@@ -292,9 +213,7 @@ function startVerification(step) {
                     "✓ Verification complete";
 
 
-                completeStep(
-                    step
-                );
+                finishStep(step);
 
             }
 
@@ -304,127 +223,10 @@ function startVerification(step) {
 
 
 /* =========================================
-   RESTORE PROGRESS
+   FINISH STEP
 ========================================= */
 
-function restoreProgress() {
-
-
-    /* -------------------------------------
-       STEP 1
-    ------------------------------------- */
-
-    if (
-        getProgress("action1") ===
-        "clicked"
-    ) {
-
-        enableVerify(1);
-
-        const timer =
-            document.getElementById(
-                "timer1"
-            );
-
-        if (timer) {
-
-            timer.textContent =
-                "Ready to verify";
-
-        }
-
-    }
-
-
-    if (
-        getProgress("completed1") ===
-        "yes"
-    ) {
-
-        completeStepWithoutSaving(1);
-
-    }
-
-
-    /* -------------------------------------
-       STEP 2
-    ------------------------------------- */
-
-    if (
-        getProgress("action2") ===
-        "clicked"
-    ) {
-
-        enableVerify(2);
-
-        const timer =
-            document.getElementById(
-                "timer2"
-            );
-
-        if (timer) {
-
-            timer.textContent =
-                "Ready to verify";
-
-        }
-
-    }
-
-
-    if (
-        getProgress("completed2") ===
-        "yes"
-    ) {
-
-        completeStepWithoutSaving(2);
-
-    }
-
-
-    /* -------------------------------------
-       STEP 3
-    ------------------------------------- */
-
-    if (
-        getProgress("action3") ===
-        "clicked"
-    ) {
-
-        enableVerify(3);
-
-        const timer =
-            document.getElementById(
-                "timer3"
-            );
-
-        if (timer) {
-
-            timer.textContent =
-                "Ready to verify";
-
-        }
-
-    }
-
-
-    if (
-        getProgress("completed3") ===
-        "yes"
-    ) {
-
-        completeStepWithoutSaving(3);
-
-    }
-
-}
-
-
-/* =========================================
-   COMPLETE WITHOUT SAVING AGAIN
-========================================= */
-
-function completeStepWithoutSaving(step) {
+function finishStep(step) {
 
     const card =
         document.getElementById(
@@ -432,57 +234,52 @@ function completeStepWithoutSaving(step) {
         );
 
 
+    /*
+       Mark current step completed.
+    */
+
     if (card) {
 
         card.classList.remove(
-            "locked"
+            "active"
         );
 
         card.classList.add(
-            "unlocked"
+            "completed"
         );
 
     }
 
+
+    /* ===============================
+       STEP 1 → STEP 2
+    =============================== */
 
     if (step === 1) {
 
-        unlockStep(2);
+        unlockStep2();
 
     }
 
 
-    if (step === 2) {
+    /* ===============================
+       STEP 2 → STEP 3
+    =============================== */
 
-        unlockStep(3);
+    else if (step === 2) {
+
+        unlockStep3();
 
     }
 
 
-    if (step === 3) {
+    /* ===============================
+       STEP 3 → ACCESS
+    =============================== */
 
-        const accessBox =
-            document.getElementById(
-                "accessBox"
-            );
+    else if (step === 3) {
 
-        const accessBtn =
-            document.getElementById(
-                "accessBtn"
-            );
-
-
-        accessBox.classList.remove(
-            "locked"
-        );
-
-        accessBox.classList.add(
-            "unlocked"
-        );
-
-
-        accessBtn.disabled =
-            false;
+        unlockAccess();
 
     }
 
@@ -490,52 +287,69 @@ function completeStepWithoutSaving(step) {
 
 
 /* =========================================
-   GET ACCESS BUTTON
+   ACCESS
 ========================================= */
 
-function setupAccessButton() {
+function unlockAccess() {
 
-    const accessBtn =
+    const accessBox =
+        document.getElementById(
+            "accessBox"
+        );
+
+
+    const accessButton =
         document.getElementById(
             "accessBtn"
         );
 
 
-    if (!accessBtn) return;
-
-
-    accessBtn.addEventListener(
-        "click",
-        function () {
-
-            if (
-                getProgress(
-                    "completed3"
-                ) === "yes"
-            ) {
-
-                window.location.href =
-                    "./access.html";
-
-            }
-
-        }
+    accessBox.classList.remove(
+        "locked"
     );
+
+
+    accessBox.classList.add(
+        "completed"
+    );
+
+
+    accessButton.disabled =
+        false;
+
+
+    accessBox.querySelector(
+        "h2"
+    ).textContent =
+        "🔓 Access Unlocked";
+
+
+    accessBox.querySelector(
+        "p"
+    ).textContent =
+        "All steps have been completed.";
 
 }
 
 
 /* =========================================
-   PAGE LOAD
+   GET ACCESS
 ========================================= */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
+function getAccess() {
 
-        restoreProgress();
+    const accessButton =
+        document.getElementById(
+            "accessBtn"
+        );
 
-        setupAccessButton();
 
+    if (accessButton.disabled) {
+        return;
     }
-);
+
+
+    window.location.href =
+        "./access.html";
+
+}
