@@ -13,132 +13,157 @@
 
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <header>
-            <div class="logo">👑</div>
-            <h1>ROYAL MOD</h1>
-            <p>Official Access Portal</p>
-        </header>
+    <header>
+        <div class="logo">👑</div>
 
-        <main>
+        <h1>ROYAL MOD</h1>
 
-            <div class="card">
-
-                <div class="step-number">01</div>
-
-                <h2>Subscribe to YouTube</h2>
-
-                <p>
-                    Subscribe to our official YouTube channel
-                    to continue.
-                </p>
-
-                <a
-                    href="https://www.youtube.com/@Royal_mod-89"
-                    target="_blank"
-                    class="action-btn"
-                >
-                    SUBSCRIBE
-                </a>
-
-                <button class="verify-btn" onclick="startVerification(1)">
-                    VERIFY
-                </button>
-
-                <div id="timer1" class="timer"></div>
-
-            </div>
+        <p>Official Access Portal</p>
+    </header>
 
 
-            <div class="card locked">
+    <main>
 
-                <div class="step-number">02</div>
+        <!-- STEP 1 -->
 
-                <h2>Subscribe to YouTube</h2>
+        <div class="card" id="step1">
 
-                <p>
-                    Complete Step 1 before continuing.
-                </p>
+            <div class="step-number">01</div>
 
-                <a
-                    href="https://www.youtube.com/@Royalmod.2"
-                    target="_blank"
-                    class="action-btn"
-                >
-                    SUBSCRIBE
-                </a>
+            <h2>Subscribe to YouTube</h2>
 
-                <button
-                    class="verify-btn"
-                    id="verify2"
-                    onclick="startVerification(2)"
-                    disabled
-                >
-                    VERIFY
-                </button>
+            <p>
+                Subscribe to our first official YouTube channel
+                to continue.
+            </p>
 
-                <div id="timer2" class="timer"></div>
+            <a
+                href="https://www.youtube.com/@Royal_mod-89"
+                target="_blank"
+                class="action-btn"
+                id="subscribe1"
+                onclick="unlockVerify(1)"
+            >
+                SUBSCRIBE
+            </a>
 
-            </div>
+            <button
+                class="verify-btn"
+                id="verify1"
+                onclick="startVerification(1)"
+                disabled
+            >
+                VERIFY
+            </button>
 
+            <div id="timer1" class="timer"></div>
 
-            <div class="card locked">
-
-                <div class="step-number">03</div>
-
-                <h2>Follow Instagram</h2>
-
-                <p>
-                    Follow our official Instagram account.
-                </p>
-
-                <a
-                    href="https://www.instagram.com/royalmod_89"
-                    target="_blank"
-                    class="action-btn"
-                >
-                    FOLLOW
-                </a>
-
-                <button
-                    class="verify-btn"
-                    id="verify3"
-                    onclick="startVerification(3)"
-                    disabled
-                >
-                    VERIFY
-                </button>
-
-                <div id="timer3" class="timer"></div>
-
-            </div>
+        </div>
 
 
-            <div id="accessBox" class="access-box locked">
+        <!-- STEP 2 -->
 
-                <h2>🔐 Access</h2>
+        <div class="card locked" id="step2">
 
-                <p>
-                    Complete all steps to unlock access.
-                </p>
+            <div class="step-number">02</div>
 
-                <button id="accessBtn" disabled>
-                    GET ACCESS
-                </button>
+            <h2>Subscribe to YouTube</h2>
 
-            </div>
+            <p>
+                Complete Step 1 before continuing.
+            </p>
 
-        </main>
+            <a
+                href="https://www.youtube.com/@Royalmod.2"
+                target="_blank"
+                class="action-btn disabled-link"
+                id="subscribe2"
+                aria-disabled="true"
+                onclick="return false;"
+            >
+                SUBSCRIBE
+            </a>
+
+            <button
+                class="verify-btn"
+                id="verify2"
+                onclick="startVerification(2)"
+                disabled
+            >
+                VERIFY
+            </button>
+
+            <div id="timer2" class="timer"></div>
+
+        </div>
 
 
-        <footer>
-            <p>© 2026 Royal Mod. All Rights Reserved.</p>
-        </footer>
+        <!-- STEP 3 -->
 
-    </div>
+        <div class="card locked" id="step3">
 
-    <script src="script.js"></script>
+            <div class="step-number">03</div>
+
+            <h2>Follow Instagram</h2>
+
+            <p>
+                Follow our official Instagram account.
+            </p>
+
+            <a
+                href="https://www.instagram.com/royalmod_89"
+                target="_blank"
+                class="action-btn disabled-link"
+                id="follow3"
+                aria-disabled="true"
+                onclick="return false;"
+            >
+                FOLLOW
+            </a>
+
+            <button
+                class="verify-btn"
+                id="verify3"
+                onclick="startVerification(3)"
+                disabled
+            >
+                VERIFY
+            </button>
+
+            <div id="timer3" class="timer"></div>
+
+        </div>
+
+
+        <!-- ACCESS -->
+
+        <div id="accessBox" class="access-box locked">
+
+            <h2>🔒 Access</h2>
+
+            <p>
+                Complete all steps to unlock access.
+            </p>
+
+            <button id="accessBtn" disabled>
+                GET ACCESS
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+        <p>© 2026 Royal Mod. All Rights Reserved.</p>
+    </footer>
+
+</div>
+
+
+<script src="script.js"></script>
 
 </body>
 </html>
