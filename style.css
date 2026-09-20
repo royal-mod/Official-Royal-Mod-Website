@@ -1,6 +1,8 @@
 /* =========================================
-   RESET
+   ROYAL MOD
+   MAIN STYLESHEET
 ========================================= */
+
 
 * {
     margin: 0;
@@ -9,21 +11,17 @@
 }
 
 
-/* =========================================
-   VARIABLES
-========================================= */
-
 :root {
 
     --gold: #f5c542;
 
     --gold-light: #ffe27a;
 
-    --bg: #070707;
+    --background: #070707;
 
     --card: #111111;
 
-    --border: rgba(245, 197, 66, 0.25);
+    --border: rgba(245, 197, 66, 0.28);
 
     --text: #ffffff;
 
@@ -38,28 +36,28 @@
 
 body {
 
+    min-height: 100vh;
+
     font-family:
         Arial,
         Helvetica,
         sans-serif;
 
+    color: var(--text);
+
     background:
         radial-gradient(
             circle at top,
-            rgba(245, 197, 66, 0.12),
-            transparent 35%
+            rgba(245, 197, 66, 0.13),
+            transparent 38%
         ),
-        #070707;
-
-    color: var(--text);
-
-    min-height: 100vh;
+        var(--background);
 
 }
 
 
 /* =========================================
-   CONTAINER
+   MAIN CONTAINER
 ========================================= */
 
 .container {
@@ -70,7 +68,7 @@ body {
 
     margin: auto;
 
-    padding: 35px 18px;
+    padding: 40px 18px;
 
 }
 
@@ -90,17 +88,17 @@ header {
 
 .logo {
 
-    width: 75px;
+    width: 76px;
 
-    height: 75px;
-
-    margin: auto;
+    height: 76px;
 
     display: flex;
 
     align-items: center;
 
     justify-content: center;
+
+    margin: auto;
 
     border: 1px solid var(--gold);
 
@@ -113,20 +111,20 @@ header {
 
     box-shadow:
         0 0 35px
-        rgba(245, 197, 66, 0.15);
+        rgba(245, 197, 66, 0.14);
 
 }
 
 
 header h1 {
 
-    margin-top: 18px;
+    margin-top: 16px;
+
+    color: var(--gold);
 
     font-size: 38px;
 
     letter-spacing: 4px;
-
-    color: var(--gold);
 
 }
 
@@ -149,36 +147,70 @@ header p {
 .card,
 .access-box {
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,0.045),
-            rgba(255,255,255,0.015)
-        );
-
-    border: 1px solid var(--border);
-
-    border-radius: 18px;
+    position: relative;
 
     padding: 28px;
 
     margin-bottom: 20px;
 
-    backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.045),
+            rgba(255,255,255,0.012)
+        );
 
     box-shadow:
-        0 10px 40px
+        0 12px 40px
         rgba(0,0,0,0.35);
 
-}
-
-
-.card {
-
-    position: relative;
+    transition:
+        0.3s ease;
 
 }
 
+
+/* =========================================
+   LOCKED CARD
+========================================= */
+
+.card.locked {
+
+    opacity: 0.42;
+
+    filter: grayscale(0.4);
+
+}
+
+
+/* ACTIVE CARD */
+
+.card.active {
+
+    opacity: 1;
+
+}
+
+
+/* COMPLETED CARD */
+
+.card.completed {
+
+    opacity: 1;
+
+    border-color:
+        rgba(245,197,66,0.55);
+
+}
+
+
+/* =========================================
+   STEP NUMBER
+========================================= */
 
 .step-number {
 
@@ -188,33 +220,39 @@ header p {
 
     right: 22px;
 
-    color: var(--gold);
-
-    font-weight: bold;
-
-    font-size: 13px;
+    padding: 7px 12px;
 
     border: 1px solid var(--border);
 
     border-radius: 20px;
 
-    padding: 7px 12px;
+    color: var(--gold);
+
+    font-size: 12px;
+
+    font-weight: bold;
 
 }
 
 
-.card h2 {
+/* =========================================
+   HEADINGS
+========================================= */
 
-    font-size: 22px;
+.card h2 {
 
     margin-bottom: 10px;
 
     padding-right: 60px;
 
+    font-size: 22px;
+
 }
 
 
 .card p {
+
+    margin-bottom: 22px;
 
     color: var(--muted);
 
@@ -222,62 +260,62 @@ header p {
 
     line-height: 1.6;
 
-    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   BUTTON AREA
+========================================= */
+
+.buttons {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
 
 }
 
 
 /* =========================================
-   BUTTONS
+   SUBSCRIBE / FOLLOW
 ========================================= */
 
-.action-btn,
-.verify-btn,
-#accessBtn {
+.action-btn {
 
-    display: inline-block;
+    display: inline-flex;
 
-    border: none;
+    align-items: center;
 
-    outline: none;
+    justify-content: center;
+
+    min-width: 120px;
 
     padding: 13px 22px;
 
     border-radius: 10px;
 
+    background: var(--gold);
+
+    color: #080808;
+
+    text-decoration: none;
+
     font-size: 13px;
 
     font-weight: bold;
 
-    cursor: pointer;
-
-    transition:
-        0.25s ease;
+    transition: 0.25s ease;
 
 }
 
 
-/* SUBSCRIBE / FOLLOW */
-
-.action-btn {
-
-    text-decoration: none;
-
-    color: #080808;
-
-    background: var(--gold);
-
-    margin-right: 8px;
-
-}
-
-
-.action-btn:hover {
+.action-btn:hover:not(.disabled) {
 
     background: var(--gold-light);
 
-    transform:
-        translateY(-2px);
+    transform: translateY(-2px);
 
     box-shadow:
         0 8px 25px
@@ -286,44 +324,13 @@ header p {
 }
 
 
-/* VERIFY */
-
-.verify-btn {
-
-    background: #202020;
-
-    color: white;
-
-    border: 1px solid #333;
-
-}
-
-
-.verify-btn:hover:not(:disabled) {
-
-    border-color: var(--gold);
-
-    color: var(--gold);
-
-}
-
-
-.verify-btn:disabled {
-
-    opacity: 0.35;
-
-    cursor: not-allowed;
-
-}
-
-
 /* =========================================
-   DISABLED LINKS
+   DISABLED ACTION BUTTON
 ========================================= */
 
-.disabled-link {
+.action-btn.disabled {
 
-    opacity: 0.30;
+    opacity: 0.25;
 
     pointer-events: none;
 
@@ -335,8 +342,42 @@ header p {
 
 
 /* =========================================
-   READY VERIFY
+   VERIFY BUTTON
 ========================================= */
+
+.verify-btn {
+
+    min-width: 105px;
+
+    padding: 13px 22px;
+
+    border: 1px solid #333;
+
+    border-radius: 10px;
+
+    background: #202020;
+
+    color: #777;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    cursor: not-allowed;
+
+    transition: 0.25s ease;
+
+}
+
+
+.verify-btn:disabled {
+
+    opacity: 0.45;
+
+}
+
+
+/* VERIFY READY */
 
 .verify-btn.ready {
 
@@ -344,9 +385,17 @@ header p {
 
     color: var(--gold);
 
-    box-shadow:
-        0 0 15px
-        rgba(245,197,66,0.12);
+    cursor: pointer;
+
+    opacity: 1;
+
+}
+
+
+.verify-btn.ready:hover {
+
+    background:
+        rgba(245,197,66,0.08);
 
 }
 
@@ -357,6 +406,8 @@ header p {
 
 .timer {
 
+    min-height: 22px;
+
     margin-top: 18px;
 
     color: var(--gold);
@@ -364,30 +415,6 @@ header p {
     font-size: 14px;
 
     font-weight: bold;
-
-    min-height: 20px;
-
-}
-
-
-/* =========================================
-   LOCKED / UNLOCKED
-========================================= */
-
-.locked {
-
-    opacity: 0.50;
-
-}
-
-
-.card.unlocked,
-.access-box.unlocked {
-
-    opacity: 1;
-
-    border-color:
-        rgba(245,197,66,0.45);
 
 }
 
@@ -400,43 +427,77 @@ header p {
 
     text-align: center;
 
-    margin-top: 30px;
+    padding: 32px;
+
+}
+
+
+.access-box.locked {
+
+    opacity: 0.45;
+
+}
+
+
+.lock-icon {
+
+    font-size: 28px;
+
+    margin-bottom: 8px;
 
 }
 
 
 .access-box h2 {
 
-    color: var(--gold);
-
     margin-bottom: 10px;
+
+    color: var(--gold);
 
 }
 
 
 .access-box p {
 
+    margin-bottom: 20px;
+
     color: var(--muted);
 
-    margin-bottom: 20px;
+    font-size: 14px;
 
 }
 
 
+/* =========================================
+   GET ACCESS BUTTON
+========================================= */
+
 #accessBtn {
+
+    min-width: 170px;
+
+    padding: 14px 25px;
+
+    border: none;
+
+    border-radius: 10px;
 
     background: var(--gold);
 
-    color: #050505;
+    color: #080808;
 
-    min-width: 170px;
+    font-size: 13px;
+
+    font-weight: bold;
+
+    cursor: pointer;
 
 }
 
 
 #accessBtn:disabled {
 
-    opacity: 0.35;
+    opacity: 0.30;
 
     cursor: not-allowed;
 
@@ -445,11 +506,9 @@ header p {
 
 #accessBtn:not(:disabled):hover {
 
-    background:
-        var(--gold-light);
+    background: var(--gold-light);
 
-    transform:
-        translateY(-2px);
+    transform: translateY(-2px);
 
 }
 
@@ -460,9 +519,9 @@ header p {
 
 footer {
 
-    text-align: center;
+    padding-top: 15px;
 
-    padding: 25px 0 10px;
+    text-align: center;
 
     color: #666;
 
@@ -508,14 +567,19 @@ footer {
     }
 
 
+    .buttons {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+
     .action-btn,
     .verify-btn {
 
         width: 100%;
-
-        margin: 5px 0;
-
-        text-align: center;
 
     }
 
