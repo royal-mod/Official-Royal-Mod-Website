@@ -113,6 +113,8 @@
     </div>
 
 
+    <!-- ACCESS #001 -->
+
     <div class="account">
 
         <div class="account-title">
@@ -126,7 +128,7 @@
             </div>
 
             <div class="credential-value" id="user1">
-                DEMO-USERNAME-001
+                AimAi-2_5wO3f
             </div>
 
             <button
@@ -146,60 +148,12 @@
             </div>
 
             <div class="credential-value" id="pass1">
-                DEMO-PASSWORD-001
+                svzMhaXe
             </div>
 
             <button
                 class="copy-btn"
                 onclick="copyText('pass1', this)"
-            >
-                COPY
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <div class="account">
-
-        <div class="account-title">
-            ACCESS #002
-        </div>
-
-        <div class="credential">
-
-            <div class="credential-label">
-                Username
-            </div>
-
-            <div class="credential-value" id="user2">
-                DEMO-USERNAME-002
-            </div>
-
-            <button
-                class="copy-btn"
-                onclick="copyText('user2', this)"
-            >
-                COPY
-            </button>
-
-        </div>
-
-
-        <div class="credential">
-
-            <div class="credential-label">
-                Password
-            </div>
-
-            <div class="credential-value" id="pass2">
-                DEMO-PASSWORD-002
-            </div>
-
-            <button
-                class="copy-btn"
-                onclick="copyText('pass2', this)"
             >
                 COPY
             </button>
@@ -226,7 +180,7 @@
 
 function copyText(id, button) {
 
-    const text = document.getElementById(id).innerText;
+    const text = document.getElementById(id).innerText.trim();
 
     navigator.clipboard.writeText(text).then(() => {
 
